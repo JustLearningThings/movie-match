@@ -28,9 +28,9 @@ The application is similar to a dating application due to its mechanics + a mult
 ![Application Architecture](./architecture_diagram.png "Application Architecture")
 
 ## Choose Technology Stack and Communication Patterns
-API Gateway: **C# (ASP.NET)** due to fast execution and high performance, support for gRPC protocol and REST API, robust API management
-Services: **Python (fastapi)** due to fast development of simple systems, being lightweight, and rich ecosystem
-Databases: **Postgres**
+- API Gateway: **C# (ASP.NET)** due to fast execution and high performance, support for gRPC protocol and REST API, robust API management
+- Services: **Python (fastapi)** due to fast development of simple systems, being lightweight, and rich ecosystem
+- Databases: **Postgres**
 
 ## Design Data Management
 ### API Gateway
