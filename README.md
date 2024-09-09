@@ -25,7 +25,7 @@ The need for a distributed system is due to the fact that the application requir
 The application is similar to a dating application due to its mechanics + a multiplayer game due to their restricted number of users per game session. Let's go for Tinder as an example: it uses push notifications, chatting, people discovery, multiple login methods, geolocation, matching feature etc. All these are potentially different services. Also, due to its big user base, there are several data clusters across the globe with different user activity, making it a distributed system application.
 
 ## Define Service Boundaries
-![Application Architecture](./architecture_diagram.png "Application Architecture")
+![Application Architecture](./app_architecture_diagram.png "Application Architecture")
 
 ## Choose Technology Stack and Communication Patterns
 - API Gateway: **C# (ASP.NET)** due to fast execution and high performance, support for gRPC protocol and REST API, robust API management
