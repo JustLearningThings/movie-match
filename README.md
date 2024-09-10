@@ -146,6 +146,101 @@ GET /rooms/{id}/results
 }
 ```
 
+These are gRPC definitions:
+```rpc
+service Authentication {
+  rpc Signup (SignupRequest) returns SignupReply {}
+  rpc Login (LoginRequest) returns LoginReply {}
+  rpc Logout (LogoutRequest) returns LogoutReply {}
+}
+
+message SignupRequest {
+  string name
+  string password
+}
+
+message SignupReply {
+  string userId
+}
+
+message LoginRequest {
+  string name
+  string password
+}
+
+message LoginReply {
+  string userId
+}
+
+message LogoutRequest {
+  string userId
+}
+
+message LogoutReply {
+  string status
+}
+```
+```rpc
+service LobbyService {
+  rpc GetMovie (GetMovieRequest) returns MovieReply {}
+  rpc RateMovie (RateMovieRequest) returns RateResponse
+  rpc CreateLobby (CreateLobbyRequest) returns CreateLobbyResponse
+  rpc JoinLobby (JoinLobbyRequest) returns JoinLobbyResponse
+  rpc GetLobbyResult (LobbyResultRequest) returns LobbyResult
+}
+
+message GetMovieRequest {
+  string movieId
+}
+
+message MovieReply {
+  string movieId
+  string title
+  string poster
+  string genre
+  float rating
+  date released
+  string released
+}
+
+message RateMovieRequest {
+  string movieId
+  boolean like
+}
+
+message RateResponse {
+  string status
+}
+
+message CreateLobbyRequest {
+  string userId
+  string lobbyName
+}
+
+message CreateLobbyResponse {
+  string status
+}
+
+message JoinLobbyRequest {
+  string userId
+  string lobbyId
+}
+
+message JoinLobbyResponse {
+  string status
+  string lobbyName
+}
+
+message LobbyResultRequest {
+  string lobbyId
+  string userId
+}
+
+message LobbyResult {
+  repeated MovieReply movies
+}
+```
+
 
 ## Set Up Deployment and Scaling
 The services and the API Gateway will be dockerized. Scaling and container management will be done with k8s. Potentially Lobbdy service, due to bigger number of requests will have more instances.
